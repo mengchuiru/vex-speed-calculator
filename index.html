@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>VEX-VRC Speed Calculator</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,32 +13,39 @@
             padding: 20px;
             background-color: #f0f0f0;
         }
+
         .calculator {
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        th, td {
+
+        th,
+        td {
             padding: 12px;
             text-align: center;
             border: 1px solid #ddd;
         }
+
         th {
             background-color: #f5f5f5;
         }
+
         select {
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
         }
+
         #result {
             font-size: 20px;
             color: #333;
@@ -44,10 +53,13 @@
             background: #e8f5e9;
             border-radius: 5px;
         }
+
         h2 {
             text-align: center;
-            margin: 0 50px 20px 0; /* 为按钮留出空间 */
+            margin: 0 50px 20px 0;
+            /* 为按钮留出空间 */
         }
+
         .language-btn {
             position: absolute;
             top: 15px;
@@ -60,19 +72,22 @@
             cursor: pointer;
             transition: background 0.3s;
         }
+
         .language-btn:hover {
             background: #45a049;
         }
+
         .rpm-cell {
             transition: background-color 0.3s;
         }
     </style>
 </head>
+
 <body>
     <div class="calculator">
         <h2 class="translatable" data-en="Speed Calculator" data-zh="车速计算">车速计算</h2>
         <button class="language-btn" onclick="toggleLanguage()">English</button>
-        
+
         <table>
             <thead>
                 <tr>
@@ -95,7 +110,8 @@
                     <td>
                         <select id="b" onchange="calculate()">
                             <option value="2.75" class="translatable" data-en="2.75" data-zh="2.75">2.75</option>
-                            <option value="3.25" selected class="translatable" data-en="3.25" data-zh="3.25">3.25</option>
+                            <option value="3.25" selected class="translatable" data-en="3.25" data-zh="3.25">3.25
+                            </option>
                             <option value="4.0" class="translatable" data-en="4.0" data-zh="4.0">4.0</option>
                         </select>
                     </td>
@@ -135,7 +151,7 @@
         function toggleLanguage() {
             isEnglish = !isEnglish;
             document.querySelector('.language-btn').textContent = isEnglish ? '中文' : 'English';
-            
+
             langElements.forEach(element => {
                 if (element.tagName === 'OPTION') {
                     element.textContent = isEnglish ? element.dataset.en : element.dataset.zh;
@@ -149,7 +165,7 @@
         window.onload = () => {
             calculate();
             setRpmColor();
-            
+
             // 从localStorage读取语言状态
             const savedLang = localStorage.getItem('language');
             if (savedLang === 'en') {
@@ -171,7 +187,7 @@
             // 显示结果
             const resultCell = document.getElementById('result');
             resultCell.innerHTML = `${result}`;
-            
+
             // 设置转速单元格颜色
             setRpmColor();
         }
@@ -179,8 +195,8 @@
         function setRpmColor() {
             const rpmCell = document.getElementById('rpmCell');
             const rpm = document.getElementById('a').value;
-            
-            switch(rpm) {
+
+            switch (rpm) {
                 case '100':
                     rpmCell.style.backgroundColor = '#ff0000'; // 红色
                     break;
