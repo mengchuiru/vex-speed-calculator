@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <title>VEX-VRC Speed Calculator</title>
     <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="./images/Motor/600.svg" as="image">
+    <link rel="preload" href="./images/Motor/100.svg" as="image">
+    <link rel="preload" href="./images/Motor/200.svg" as="image">
+    <link rel="preload" href="./images/Omni Wheel/3.25.png" as="image">
+    <link rel="preload" href="./images/Omni Wheel/2.75.png" as="image">
+    <link rel="preload" href="./images/Omni Wheel/4.png" as="image">
+    <link rel="preload" href="./images/Gear/12.png" as="image">
+    <link rel="preload" href="./images/Gear/24.png" as="image">
+    <link rel="preload" href="./images/Gear/36.png" as="image">
+    <link rel="preload" href="./images/Gear/48.png" as="image">
+    <link rel="preload" href="./images/Gear/60.png" as="image">
+    <link rel="preload" href="./images/Gear/72.png" as="image">
+    <link rel="preload" href="./images/Gear/84.png" as="image">
+
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -257,10 +271,10 @@
                 inputs.gear_wheel * 0.004788).toFixed(2);
             document.getElementById('result').textContent = result;
             // 更新图片
-            updateImage('motorImage', `./images/Motor/${inputs.motor}.svg`, 100);
+            updateImage('motorImage', `./images/Motor/${inputs.motor}.svg`, 50);
             updateImage('wheelImage', `./images/Omni Wheel/${inputs.wheel}.png`, inputs.wheel * 30);
             updateImage('GmImage', `./images/Gear/${inputs.gear_motor}.png`, inputs.gear_motor / 12 * 30 * 0.5);
-            updateImage('GwImage', `./images/Gear/${inputs.gear_wheel}.png`, `${inputs.gear_wheel / 12 * 30 * 0.5}`);
+            updateImage('GwImage', `./images/Gear/${inputs.gear_wheel}.png`, inputs.gear_wheel / 12 * 30 * 0.5);
 
         }
 
