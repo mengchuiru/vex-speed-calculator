@@ -52,6 +52,7 @@ th {
     height: 180px;
 }
 
+
 select {
     width: 100%;
     padding: 10px;
@@ -83,7 +84,43 @@ select:focus {
 }
 
 h2 {
+    height: 60px;
+    /* 根据实际测量值设置 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px 0;
+    /* 清除右侧margin */
+}
+
+.title-text {
+    display: inline-block;
+    max-width: 80%;
     text-align: center;
+    padding: 0 20px;
+}
+
+
+.error-message {
+    color: #dc3545;
+    background: #ffeef0;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 15px 0;
+    border: 1px solid #ffd6d9;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: none; /* 默认隐藏 */
+}
+
+.error-message.visible {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .language-btn {
