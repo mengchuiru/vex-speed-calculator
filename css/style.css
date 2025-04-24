@@ -1,0 +1,142 @@
+/* css/style.css */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.calculator {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow-x: auto;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: white;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.images {
+    height: 180px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ced4da;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    background: white;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+#result {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    background: #e9f5ff;
+    border-radius: var(--border-radius);
+    padding: 18px;
+    transition: background 0.3s;
+}
+
+h2 {
+    text-align: center;
+}
+
+.language-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.language-btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.image-container {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.dynamic-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.dynamic-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .calculator {
+        padding: 15px;
+        border-radius: 0;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+}
